@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtServer = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,43 +43,44 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnAddWithFile = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numPiece = new System.Windows.Forms.NumericUpDown();
             this.btnSend = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numInterval = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.btnDeleteMail = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numPiece)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInterval)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtServer
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtServer.Location = new System.Drawing.Point(12, 24);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(175, 20);
+            this.txtServer.TabIndex = 0;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(374, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtPassword.Location = new System.Drawing.Point(374, 24);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(175, 20);
+            this.txtPassword.TabIndex = 2;
             // 
-            // textBox3
+            // txtUsername
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 24);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(175, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtUsername.Location = new System.Drawing.Point(193, 24);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(175, 20);
+            this.txtUsername.TabIndex = 1;
             // 
-            // textBox4
+            // txtPort
             // 
-            this.textBox4.Location = new System.Drawing.Point(555, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(175, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtPort.Location = new System.Drawing.Point(555, 24);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(175, 20);
+            this.txtPort.TabIndex = 3;
             // 
             // label1
             // 
@@ -119,15 +120,15 @@
             // 
             // txtTargetEmail
             // 
-            this.txtTargetEmail.Location = new System.Drawing.Point(9, 83);
+            this.txtTargetEmail.Location = new System.Drawing.Point(10, 68);
             this.txtTargetEmail.Name = "txtTargetEmail";
             this.txtTargetEmail.Size = new System.Drawing.Size(175, 20);
-            this.txtTargetEmail.TabIndex = 5;
+            this.txtTargetEmail.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 67);
+            this.label5.Location = new System.Drawing.Point(10, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 6;
@@ -135,18 +136,21 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(9, 109);
+            this.btnAdd.Location = new System.Drawing.Point(10, 94);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(175, 23);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lstTargetEmails
             // 
             this.lstTargetEmails.FormattingEnabled = true;
-            this.lstTargetEmails.Location = new System.Drawing.Point(193, 83);
+            this.lstTargetEmails.Location = new System.Drawing.Point(194, 68);
+            this.lstTargetEmails.MultiColumn = true;
             this.lstTargetEmails.Name = "lstTargetEmails";
+            this.lstTargetEmails.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstTargetEmails.Size = new System.Drawing.Size(537, 290);
             this.lstTargetEmails.TabIndex = 8;
             // 
@@ -156,56 +160,56 @@
             // 
             // btnAddWithFile
             // 
-            this.btnAddWithFile.Location = new System.Drawing.Point(9, 138);
+            this.btnAddWithFile.Location = new System.Drawing.Point(10, 123);
             this.btnAddWithFile.Name = "btnAddWithFile";
             this.btnAddWithFile.Size = new System.Drawing.Size(175, 23);
-            this.btnAddWithFile.TabIndex = 9;
+            this.btnAddWithFile.TabIndex = 6;
             this.btnAddWithFile.Text = "ADD WITH FILE";
             this.btnAddWithFile.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 349);
+            this.progressBar1.Location = new System.Drawing.Point(10, 334);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(178, 23);
             this.progressBar1.TabIndex = 10;
             // 
-            // numericUpDown1
+            // numPiece
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(9, 187);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(175, 20);
-            this.numericUpDown1.TabIndex = 11;
+            this.numPiece.Location = new System.Drawing.Point(10, 204);
+            this.numPiece.Name = "numPiece";
+            this.numPiece.Size = new System.Drawing.Size(175, 20);
+            this.numPiece.TabIndex = 7;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(9, 252);
+            this.btnSend.Location = new System.Drawing.Point(10, 269);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(175, 23);
-            this.btnSend.TabIndex = 12;
+            this.btnSend.TabIndex = 9;
             this.btnSend.Text = "SEND";
             this.btnSend.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 333);
+            this.label6.Location = new System.Drawing.Point(7, 318);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "STATUS: ";
             // 
-            // numericUpDown2
+            // numInterval
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(9, 226);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(175, 20);
-            this.numericUpDown2.TabIndex = 11;
+            this.numInterval.Location = new System.Drawing.Point(10, 243);
+            this.numInterval.Name = "numInterval";
+            this.numInterval.Size = new System.Drawing.Size(175, 20);
+            this.numInterval.TabIndex = 8;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 210);
+            this.label7.Location = new System.Drawing.Point(7, 227);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 14;
@@ -214,24 +218,35 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 171);
+            this.label8.Location = new System.Drawing.Point(7, 188);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "PIECE:";
             // 
+            // btnDeleteMail
+            // 
+            this.btnDeleteMail.Location = new System.Drawing.Point(10, 152);
+            this.btnDeleteMail.Name = "btnDeleteMail";
+            this.btnDeleteMail.Size = new System.Drawing.Size(175, 23);
+            this.btnDeleteMail.TabIndex = 6;
+            this.btnDeleteMail.Text = "DELETE SELECTED MAIL";
+            this.btnDeleteMail.UseVisualStyleBackColor = true;
+            this.btnDeleteMail.Click += new System.EventHandler(this.btnDeleteMail_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 384);
+            this.ClientSize = new System.Drawing.Size(743, 367);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numInterval);
+            this.Controls.Add(this.numPiece);
             this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.btnDeleteMail);
             this.Controls.Add(this.btnAddWithFile);
             this.Controls.Add(this.lstTargetEmails);
             this.Controls.Add(this.btnAdd);
@@ -241,17 +256,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IPWarmer";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPiece)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,10 +274,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtServer;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -274,12 +289,13 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnAddWithFile;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numPiece;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numInterval;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnDeleteMail;
     }
 }
 
