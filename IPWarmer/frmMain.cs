@@ -12,6 +12,7 @@ namespace IPWarmer
 {
     public partial class frmMain : Form
     {
+        public int CurrentStep = 0;
         public frmMain()
         {
             InitializeComponent();
